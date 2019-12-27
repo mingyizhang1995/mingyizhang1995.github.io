@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="docker基础学习路线.md, ZXP">
-    <meta name="description" content="docker基础学习路线.md | ZXP">
+    <meta name="keywords" content="docker安装, ZXP">
+    <meta name="description" content="准备安装1、 卸载旧版本apt-get remove docker docker-engine docker.io containerd runc2、 使用 APT 安装# 更新数据源
+apt-get update
+# 安装所需依赖
+apt">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>docker基础学习路线.md | ZXP</title>
+    <title>docker安装 | ZXP</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -303,12 +306,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">docker基础学习路线.md</h1>
+                    <h1 class="description center-align post-title">docker安装</h1>
                 </div>
             </div>
         </div>
@@ -467,7 +470,132 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h4 id="准备安装"><a href="#准备安装" class="headerlink" title="准备安装"></a>准备安装</h4><h5 id="1、-卸载旧版本"><a href="#1、-卸载旧版本" class="headerlink" title="1、 卸载旧版本"></a>1、 卸载旧版本</h5><pre><code>apt-get remove docker docker-engine docker.io containerd runc</code></pre><h5 id="2、-使用-APT-安装"><a href="#2、-使用-APT-安装" class="headerlink" title="2、 使用 APT 安装"></a>2、 使用 APT 安装</h5><pre><code># 更新数据源
+apt-get update
+# 安装所需依赖
+apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+# 安装 GPG 证书
+curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+# 新增数据源
+add-apt-repository &quot;deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable&quot;
+# 更新并安装 Docker CE
+apt-get update &amp;&amp; apt-get install -y docker-ce</code></pre><h5 id="3、-验证安装是否成功"><a href="#3、-验证安装是否成功" class="headerlink" title="3、 验证安装是否成功"></a>3、 验证安装是否成功</h5><pre><code>docker version
+输出：
+Client: Docker Engine - Community
+ Version:           19.03.5
+ API version:       1.40
+ Go version:        go1.12.12
+ Git commit:        633a0ea838
+ Built:             Wed Nov 13 07:29:52 2019
+ OS/Arch:           linux/amd64
+ Experimental:      false
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          19.03.5
+  API version:      1.40 (minimum version 1.12)
+  Go version:       go1.12.12
+  Git commit:       633a0ea838
+  Built:            Wed Nov 13 07:28:22 2019
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          1.2.10
+  GitCommit:        b34a5c8af56e510852c35414db4c1f4fa6172339
+ runc:
+  Version:          1.0.0-rc8+dev
+  GitCommit:        3e425f80a8c931f88e6d94a8c831b9d5aa481657
+ docker-init:
+  Version:          0.18.0
+  GitCommit:        fec3683</code></pre><h5 id="4、-更改阿里云镜像"><a href="#4、-更改阿里云镜像" class="headerlink" title="4、 更改阿里云镜像"></a>4、 更改阿里云镜像</h5><p>1.通过修改 daemon 配置文件 /etc/docker/daemon.json 来使用加速器</p>
+<pre><code>{
+  &quot;registry-mirrors&quot;: [&quot;https://xxxxxxxx.mirror.aliyuncs.com&quot;]
+}</code></pre><h5 id="6、重启"><a href="#6、重启" class="headerlink" title="6、重启"></a>6、重启</h5><pre><code># 重启 Docker
+systemctl daemon-reload
+systemctl restart docker</code></pre><h5 id="7、验证配置是否成功"><a href="#7、验证配置是否成功" class="headerlink" title="7、验证配置是否成功"></a>7、验证配置是否成功</h5><pre><code>docker info
+输出：
+Client:
+ Debug Mode: false
+
+Server:
+ Containers: 0
+  Running: 0
+  Paused: 0
+  Stopped: 0
+ Images: 0
+ Server Version: 19.03.5
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Native Overlay Diff: true
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+ Swarm: inactive
+ Runtimes: runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: b34a5c8af56e510852c35414db4c1f4fa6172339
+ runc version: 3e425f80a8c931f88e6d94a8c831b9d5aa481657
+ init version: fec3683
+ Security Options:
+  apparmor
+  seccomp
+   Profile: default
+ Kernel Version: 4.15.0-54-generic
+ Operating System: Ubuntu 18.04.1 LTS
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 2
+ Total Memory: 3.696GiB
+ Name: VM-0-10-ubuntu
+ ID: 2R5F:KRC6:TXNA:3MAS:BNUX:QTQL:ELYN:LNG7:U5WF:6ABR:VJD5:PKQA
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Registry: https://index.docker.io/v1/
+ Labels:
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Registry Mirrors:
+  https://ex4fh9vb.mirror.aliyuncs.com/
+ Live Restore Enabled: false
+</code></pre><h5 id="8、运行第一个容器"><a href="#8、运行第一个容器" class="headerlink" title="8、运行第一个容器"></a>8、运行第一个容器</h5><p>1.我们以 Nginx 为例，体验 Docker 是如何运行容器的</p>
+<pre><code># 下载镜像
+docker pull nginx
+输出：
+Using default tag: latest
+latest: Pulling from library/nginx
+000eee12ec04: Pull complete 
+eb22865337de: Pull complete 
+bee5d581ef8b: Pull complete 
+Digest: sha256:50cf965a6e08ec5784009d0fccb380fc479826b6e0e65684d9879170a9df8566
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+
+# 运行容器
+docker run --name nginx-container -p 80:80 -d nginx
+
+--name 设置名称
+-p 端口号映射
+-d 后台运行
+1c7b3280ae966dd95ac09242b1e93916e215a370e644d4384f4df6d1ea522e06</code></pre><h5 id="9、访问nginx"><a href="#9、访问nginx" class="headerlink" title="9、访问nginx"></a>9、访问nginx</h5><pre><code>http://106.54.116.52:80</code></pre><p><img src="https://note.youdao.com/yws/public/resource/d19f4d817ebe0dddf689e3e616fb1480/xmlnote/9CEFEE7791C543FB91AD023AA1BD74ED/7368" alt="image"></p>
+<h5 id="10、其它安装方法"><a href="#10、其它安装方法" class="headerlink" title="10、其它安装方法"></a>10、其它安装方法</h5><p>1.安装命令</p>
+<pre><code>sudo apt install docker.io</code></pre><p>2.解决普通用户不能直接使用 docker 命令</p>
+<pre><code>docker ps
+
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.39/containers/json: dial unix /var/run/docker.sock: connect: permission denied</code></pre><pre><code># 创建 docker 用户组
+sudo groupadd docker
+# 添加当前用户到 docker 组
+sudo usermod -aG docker $USER
+# 重启 docker
+sudo systemctl restart docker
+newgrp - docker
+# 重启系统
+sudo reboot</code></pre>
             </div>
             <hr/>
 
@@ -492,7 +620,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2019/12/27/docker/docker%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">http://yoursite.com/2019/12/27/docker/docker%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</a>
+                    <a href="http://yoursite.com/2019/12/27/docker/docker%E5%AE%89%E8%A3%85/">http://yoursite.com/2019/12/27/docker/docker%E5%AE%89%E8%A3%85/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -697,9 +825,63 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2019/12/27/docker/docker%E5%AE%89%E8%A3%85/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="docker安装">
+                        
+                        <span class="card-title">docker安装</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            准备安装1、 卸载旧版本apt-get remove docker docker-engine docker.io containerd runc2、 使用 APT 安装# 更新数据源
+apt-get update
+# 安装所需依赖
+apt
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/docker/" class="post-category">
+                                    docker
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2019/12/27/algorithm/%E7%AE%97%E6%B3%95%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">
                     <div class="card-image">
@@ -718,9 +900,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -740,43 +922,6 @@
                         <span class="chip bg-color">算法</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/12/27/k8s/k8s%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="k8s基础学习路线.md">
-                        
-                        <span class="card-title">k8s基础学习路线.md</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-27
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            ZXP
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>
