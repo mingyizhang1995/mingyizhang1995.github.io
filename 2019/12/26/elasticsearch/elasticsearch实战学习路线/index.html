@@ -4,18 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MyBatis, ZXP">
-    <meta name="description" content="MyBatis 重要知识点1、重要对象：
-Configuration
-SqlSessionFactory
-SqlSession
-SqlSource
-SqlNode
-TypeHandler
-
-
-2、手写myBatis框架之解析配置文件
-3、S">
+    <meta name="keywords" content="elasticsearch实战学习路线, ZXP">
+    <meta name="description" content="Elasticsearch 实战路线图1、Elasticsearch 日志分析
+借助 ELK 可视化分析
+Elasticsearch 全文检索
+梳理需求、写出需求文档、设计文档
+创建模板、索引、Mapping
+导入数据
+tika 文档解析整">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +19,7 @@ TypeHandler
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>MyBatis | ZXP</title>
+    <title>elasticsearch实战学习路线 | ZXP</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +309,12 @@ TypeHandler
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MyBatis</h1>
+                    <h1 class="description center-align post-title">elasticsearch实战学习路线</h1>
                 </div>
             </div>
         </div>
@@ -435,8 +431,8 @@ TypeHandler
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/MyBatis/">
-                                <span class="chip bg-color">MyBatis</span>
+                            <a href="/tags/Elasticsearch/">
+                                <span class="chip bg-color">Elasticsearch</span>
                             </a>
                         
                     </div>
@@ -447,8 +443,8 @@ TypeHandler
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/MyBatis/" class="post-category">
-                                MyBatis
+                            <a href="/categories/Elasticsearch/" class="post-category">
+                                Elasticsearch
                             </a>
                         
                     </div>
@@ -477,55 +473,22 @@ TypeHandler
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="MyBatis-重要知识点"><a href="#MyBatis-重要知识点" class="headerlink" title="MyBatis 重要知识点"></a>MyBatis 重要知识点</h2><h3 id="1、重要对象："><a href="#1、重要对象：" class="headerlink" title="1、重要对象："></a>1、重要对象：</h3><ul>
-<li>Configuration</li>
-<li>SqlSessionFactory</li>
-<li>SqlSession</li>
-<li>SqlSource</li>
-<li>SqlNode</li>
-<li>TypeHandler</li>
-</ul>
-<hr>
-<h3 id="2、手写myBatis框架之解析配置文件"><a href="#2、手写myBatis框架之解析配置文件" class="headerlink" title="2、手写myBatis框架之解析配置文件"></a>2、手写myBatis框架之解析配置文件</h3><hr>
-<h3 id="3、SqlSource和SqlNode-解析分析"><a href="#3、SqlSource和SqlNode-解析分析" class="headerlink" title="3、SqlSource和SqlNode 解析分析"></a>3、SqlSource和SqlNode 解析分析</h3><hr>
-<h3 id="4、解析配置文件源码阅读"><a href="#4、解析配置文件源码阅读" class="headerlink" title="4、解析配置文件源码阅读"></a>4、解析配置文件源码阅读</h3><ul>
-<li>全局配置文件加载流程<br><ul>
-<li>创建Configuration对象<br></li>
-<li>mappers子标签解析流程<br></li>
+                <h2 id="Elasticsearch-实战路线图"><a href="#Elasticsearch-实战路线图" class="headerlink" title="Elasticsearch 实战路线图"></a>Elasticsearch 实战路线图</h2><h3 id="1、Elasticsearch-日志分析"><a href="#1、Elasticsearch-日志分析" class="headerlink" title="1、Elasticsearch 日志分析"></a>1、Elasticsearch 日志分析</h3><ul>
+<li>借助 ELK 可视化分析</li>
+<li>Elasticsearch 全文检索<ul>
+<li>梳理需求、写出需求文档、设计文档</li>
+<li>创建模板、索引、Mapping</li>
+<li>导入数据<ul>
+<li>tika 文档解析整合</li>
 </ul>
 </li>
-<li>映射文件加载流程<br><ul>
-<li>sql子标签解析流程<br></li>
-<li>select update insert delete<ul>
-<li>子标签解析流程<br></li>
-<li>创建MappedStatement对象<br></li>
-<li>获取SqlSource对象<br></li>
-<li>获取StatementType<br></li>
+<li>检索实战</li>
+<li>聚合实战</li>
+<li>数据可视化</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<hr>
-<h3 id="5、手写mybatis框架之SqlSession执行流程"><a href="#5、手写mybatis框架之SqlSession执行流程" class="headerlink" title="5、手写mybatis框架之SqlSession执行流程"></a>5、手写mybatis框架之SqlSession执行流程</h3><ul>
-<li>SqlSource和SqlNode执行逻辑分析<br></li>
-<li>SqlSession执行流程源码阅读<br><ul>
-<li>获取BoundSql流程<br></li>
-<li>创建Statement流程<br></li>
-<li>设置参数流程<br></li>
-<li>处理结果集映射流程<br></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="6、四大组件介绍"><a href="#6、四大组件介绍" class="headerlink" title="6、四大组件介绍"></a>6、四大组件介绍</h3><ul>
-<li>Executor<br></li>
-<li>StatementHandler<br></li>
-<li>ParameterHandler<br></li>
-<li>ResultSetHandler<br></li>
-</ul>
-<hr>
-<h3 id="7、自定义插件开发"><a href="#7、自定义插件开发" class="headerlink" title="7、自定义插件开发"></a>7、自定义插件开发</h3>
+
             </div>
             <hr/>
 
@@ -550,7 +513,7 @@ TypeHandler
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2019/12/26/mybatis/Mybatis/">http://yoursite.com/2019/12/26/mybatis/Mybatis/</a>
+                    <a href="http://yoursite.com/2019/12/26/elasticsearch/elasticsearch%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">http://yoursite.com/2019/12/26/elasticsearch/elasticsearch%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -588,8 +551,8 @@ TypeHandler
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/MyBatis/">
-                                    <span class="chip bg-color">MyBatis</span>
+                                <a href="/tags/Elasticsearch/">
+                                    <span class="chip bg-color">Elasticsearch</span>
                                 </a>
                             
                         </div>
@@ -759,37 +722,29 @@ TypeHandler
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/12/26/elasticsearch/elasticsearch%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">
+                <a href="/2019/12/26/mybatis/Mybatis/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="elasticsearch基础学习路线">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="MyBatis">
                         
-                        <span class="card-title">elasticsearch基础学习路线</span>
+                        <span class="card-title">MyBatis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Elasticsearch 学习路线图1、搜索引擎初识
-搜索引擎是什么
-倒排索引
-正排索引
-搜索相关模型
-分词
-中文分词原理
-中文分词开源工具
+                            MyBatis 重要知识点1、重要对象：
+Configuration
+SqlSessionFactory
+SqlSession
+SqlSource
+SqlNode
+TypeHandler
 
 
-检索质量评价标准
-精准率
-召回率
-
-
-
-
-2、Elasticsearch 初识
-Elasti
+2、手写myBatis框架之解析配置文件
+3、S
                         
                     </div>
                     <div class="publish-info">
@@ -800,8 +755,8 @@ Elasti
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Elasticsearch/" class="post-category">
-                                    Elasticsearch
+                            <a href="/categories/MyBatis/" class="post-category">
+                                    MyBatis
                                 </a>
                             
                             
@@ -811,8 +766,8 @@ Elasti
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Elasticsearch/">
-                        <span class="chip bg-color">Elasticsearch</span>
+                    <a href="/tags/MyBatis/">
+                        <span class="chip bg-color">MyBatis</span>
                     </a>
                     
                 </div>
@@ -826,25 +781,27 @@ Elasti
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/26/elasticsearch/elasticsearch%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">
+                <a href="/2019/12/26/elasticsearch/elasticsearch%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="elasticsearch实战学习路线">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="elasticsearch进阶学习路线">
                         
-                        <span class="card-title">elasticsearch实战学习路线</span>
+                        <span class="card-title">elasticsearch进阶学习路线</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Elasticsearch 实战路线图1、Elasticsearch 日志分析
-借助 ELK 可视化分析
-Elasticsearch 全文检索
-梳理需求、写出需求文档、设计文档
-创建模板、索引、Mapping
-导入数据
-tika 文档解析整
+                            Elasticsearch 进阶路线图1、Elasticsearch 集群规划
+Elasticsearch 节点数规划
+Master 主节点
+Client 路由节点
+data 数据节点
+
+
+Elasticsearch 分片、副本规划
+Ela
                         
                     </div>
                     <div class="publish-info">

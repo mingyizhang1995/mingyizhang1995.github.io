@@ -4,8 +4,26 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, ZXP">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="elasticsearch基础学习路线, ZXP">
+    <meta name="description" content="Elasticsearch 学习路线图1、搜索引擎初识
+搜索引擎是什么
+倒排索引
+正排索引
+搜索相关模型
+分词
+中文分词原理
+中文分词开源工具
+
+
+检索质量评价标准
+精准率
+召回率
+
+
+
+
+2、Elasticsearch 初识
+Elasti">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +31,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hello World | ZXP</title>
+    <title>elasticsearch基础学习路线 | ZXP</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -303,12 +321,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">elasticsearch基础学习路线</h1>
                 </div>
             </div>
         </div>
@@ -423,12 +441,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Elasticsearch/">
+                                <span class="chip bg-color">Elasticsearch</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Elasticsearch/" class="post-category">
+                                Elasticsearch
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -454,19 +485,486 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+                <h2 id="Elasticsearch-学习路线图"><a href="#Elasticsearch-学习路线图" class="headerlink" title="Elasticsearch 学习路线图"></a>Elasticsearch 学习路线图</h2><h3 id="1、搜索引擎初识"><a href="#1、搜索引擎初识" class="headerlink" title="1、搜索引擎初识"></a>1、搜索引擎初识</h3><ul>
+<li>搜索引擎是什么</li>
+<li>倒排索引</li>
+<li>正排索引</li>
+<li>搜索相关模型</li>
+<li>分词<ul>
+<li>中文分词原理</li>
+<li>中文分词开源工具</li>
+</ul>
+</li>
+<li>检索质量评价标准<ul>
+<li>精准率</li>
+<li>召回率</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2、Elasticsearch-初识"><a href="#2、Elasticsearch-初识" class="headerlink" title="2、Elasticsearch 初识"></a>2、Elasticsearch 初识</h3><ul>
+<li>Elasticsearch 是什么</li>
+<li>Elasticsearch 能干什么</li>
+<li>Elasticsearch 和Luncene、solr的不同</li>
+<li>Elasticsearch 核心优势是什么</li>
+<li>Elasticsearch 安装实践</li>
+</ul>
+<hr>
+<h3 id="3、Elasticsearch-基础"><a href="#3、Elasticsearch-基础" class="headerlink" title="3、Elasticsearch 基础"></a>3、Elasticsearch 基础</h3><ul>
+<li>Elasticsearch 基础概念<ul>
+<li>集群</li>
+<li>节点</li>
+<li>分片</li>
+<li>副本</li>
+<li>索引</li>
+<li>类型</li>
+<li>文档</li>
+<li>路由</li>
+<li>id序列</li>
+<li>Mapping 映射<ul>
+<li>动态映射</li>
+<li>静态映射</li>
+</ul>
+</li>
+<li>末班</li>
+</ul>
+</li>
+<li>Elasticsearch 基础数据类型<ul>
+<li>基础类型<ul>
+<li>String 类型<ul>
+<li>keyword</li>
+<li>text</li>
+</ul>
+</li>
+<li>数据类型<ul>
+<li>long</li>
+<li>integer</li>
+<li>short</li>
+<li>byte</li>
+<li>double</li>
+<li>float</li>
+<li>half_float</li>
+<li>scaled_float    </li>
+</ul>
+</li>
+<li>时间类型<ul>
+<li>date</li>
+</ul>
+</li>
+<li>布尔类型<ul>
+<li>boolean</li>
+</ul>
+</li>
+<li>二进制类型<ul>
+<li>binary</li>
+</ul>
+</li>
+<li>区间类型<ul>
+<li>integer_range</li>
+<li>float_range</li>
+<li>long_range</li>
+<li>double_range</li>
+<li>date_range</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>复杂类型<ul>
+<li>数组类型<ul>
+<li>Array</li>
+</ul>
+</li>
+<li>对象类型<ul>
+<li>Object</li>
+</ul>
+</li>
+<li>Nested 类型<ul>
+<li>nested</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>特定类型<ul>
+<li>GEO 地理位置类型<ul>
+<li>Geo-point</li>
+<li>Geo-shape</li>
+</ul>
+</li>
+<li>IP类型<ul>
+<li>ip</li>
+</ul>
+</li>
+<li>自动补全类型<ul>
+<li>completion</li>
+</ul>
+</li>
+<li>string 长度类型<ul>
+<li>token_count</li>
+</ul>
+</li>
+<li>percolate 类型<ul>
+<li>mumur3</li>
+</ul>
+</li>
+<li>父子索引Join类型<ul>
+<li>percolator</li>
+</ul>
+</li>
+<li>别名类型<ul>
+<li>alias  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Elasticsearch 基础检索类型<ul>
+<li>检索和过滤<ul>
+<li>检索和过滤的区别</li>
+<li>检索和过滤的适用场景</li>
+</ul>
+</li>
+<li>结构化检索<ul>
+<li>精确匹配检索<ul>
+<li>term 单值精确匹配</li>
+<li>term 多值精确匹配</li>
+</ul>
+</li>
+<li>范围检索<ul>
+<li>range query</li>
+</ul>
+</li>
+<li>存在与否检索<ul>
+<li>exists query</li>
+</ul>
+</li>
+<li>前缀检索<ul>
+<li>prefix query</li>
+</ul>
+</li>
+<li>通配符模糊检索<ul>
+<li>wildcard query</li>
+</ul>
+</li>
+<li>正则检索<ul>
+<li>regexp query</li>
+</ul>
+</li>
+<li>类型检索<ul>
+<li>type query</li>
+</ul>
+</li>
+<li>id检索<ul>
+<li>ids query</li>
+</ul>
+</li>
+<li>模糊检索<ul>
+<li>fuzzy query</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>全文检索<ul>
+<li>分词全文检索<ul>
+<li>match query</li>
+</ul>
+</li>
+<li>短语检索<ul>
+<li>match_phrase query</li>
+</ul>
+</li>
+<li>短语前缀检索<ul>
+<li>match_phrase_prefix query</li>
+</ul>
+</li>
+<li>多字段匹配检索<ul>
+<li>multi_match query</li>
+</ul>
+</li>
+<li>支持与或非的字符串检索<ul>
+<li>query_string</li>
+</ul>
+</li>
+<li>简化的字符串检索<ul>
+<li>simple_query_string</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>复合检索<ul>
+<li>固定得分检索</li>
+<li>bool组合检索<ul>
+<li>must</li>
+<li>should<ul>
+<li>minimum should match </li>
+</ul>
+</li>
+<li>must_not</li>
+</ul>
+</li>
+<li>改变评分检索<ul>
+<li>Dis Max query</li>
+<li>function score query</li>
+<li>Boosting query</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>特定检索 <ul>
+<li>父子文档检索<ul>
+<li>Nested 检索</li>
+<li>父子检索</li>
+</ul>
+</li>
+<li>Geo 类型检索</li>
+<li>相似文章检索<ul>
+<li>more like this</li>
+</ul>
+</li>
+<li>脚本检索<ul>
+<li>script</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Elasticsearch 基础聚合类型<ul>
+<li>Metric 聚合<ul>
+<li>cardinality 去重</li>
+<li>Avg 聚合 </li>
+<li>Max 聚合</li>
+<li>Min 聚合</li>
+<li>Sum 聚合</li>
+<li>…</li>
+</ul>
+</li>
+<li>Buckting 聚合<ul>
+<li>Terms 分组聚合</li>
+<li>立方图 Histogram 聚合</li>
+<li>时间区间聚合 Data Histogram聚合</li>
+<li>过滤 Filter 聚合</li>
+<li>Nested 聚合</li>
+<li>…</li>
+</ul>
+</li>
+<li>Pipeline 聚合<ul>
+<li>Bucket script 聚合</li>
+<li>Bucket Selector 聚合</li>
+<li>Bucket Sort 聚合</li>
+<li>Max/Min/AVG/Sum/ Bucket 聚合</li>
+<li>…</li>
+</ul>
+</li>
+<li>Matrix 聚合<ul>
+<li>后续版本有可能删除</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3、Elasticsearch-基础操作"><a href="#3、Elasticsearch-基础操作" class="headerlink" title="3、Elasticsearch 基础操作"></a>3、Elasticsearch 基础操作</h3><ul>
+<li>Elasticsearch集群基本操作<ul>
+<li>集群状态分类<ul>
+<li>green</li>
+<li>yellow</li>
+<li>red</li>
+<li>health API</li>
+</ul>
+</li>
+<li>集群状态监控<ul>
+<li>集群状态<ul>
+<li>state</li>
+</ul>
+</li>
+<li>集群统计<ul>
+<li>stats</li>
+</ul>
+</li>
+<li>集群任务管理<ul>
+<li>_tasks</li>
+</ul>
+</li>
+<li>节点信息<ul>
+<li>_nodes</li>
+</ul>
+</li>
+<li>活跃线程信息<ul>
+<li>_nodes/hot_threads</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>集群备份<ul>
+<li>_snapshot</li>
+<li>_restore</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Elasticsearch索引基本操作<ul>
+<li>增加<ul>
+<li>put index</li>
+</ul>
+</li>
+<li>删除<ul>
+<li>delete index</li>
+</ul>
+</li>
+<li>修改<ul>
+<li>索引数据迁移<ul>
+<li>reindex</li>
+<li>第三方工具<ul>
+<li>Elasticsearch-dump</li>
+<li>Elasticsearch-Exporter</li>
+<li>logstash</li>
+<li>Elasticsearch-migration</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>修改副本数<ul>
+<li>注意索引一旦创建，分片数不可以更改除非reindex</li>
+</ul>
+</li>
+<li>索引压缩<ul>
+<li>shrink</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>查询<ul>
+<li>Get index 结合 _settings</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Elasticsearch文档基本操作<ul>
+<li>增加<ul>
+<li>单个文件写入<ul>
+<li>put document</li>
+</ul>
+</li>
+<li>批量写入<ul>
+<li>bulk 写入</li>
+</ul>
+</li>
+<li>第三发导入<ul>
+<li>logstash_input_*<ul>
+<li>关系型数据库导入<ul>
+<li>MySQL</li>
+<li>SQL Server</li>
+<li>Oracle</li>
+<li>PostgreSQL</li>
+</ul>
+</li>
+<li>非关系型数据库<ul>
+<li>hadoop</li>
+<li>spark</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>flume</li>
+<li>kafka-connector<ul>
+<li>kafka 实时数据流</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>删除<ul>
+<li>单个删除<ul>
+<li>delete document</li>
+</ul>
+</li>
+<li>批量删除<ul>
+<li>delete by query</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>修改<ul>
+<li>单个修改<ul>
+<li>update 结合script</li>
+</ul>
+</li>
+<li>批量修改<ul>
+<li>update_by_query</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>查询<ul>
+<li>单个索引</li>
+<li>批量索引<ul>
+<li>scroll 游标遍历</li>
+</ul>
+</li>
+<li>分页<ul>
+<li>from size</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>高亮<ul>
+<li>Unified Highlighter<ul>
+<li>默认</li>
+</ul>
+</li>
+<li>plain Highlighter</li>
+<li>fvh highlighter<ul>
+<li>适合大文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>推荐<ul>
+<li>Term suggester</li>
+<li>Phrase suggester</li>
+<li>Completion suggest</li>
+<li>Context suggest</li>
+</ul>
+</li>
+<li>分词<ul>
+<li>中英文分词的区别</li>
+<li>中英文分词插件<ul>
+<li>ik</li>
+<li>jieba</li>
+<li>ansj</li>
+</ul>
+</li>
+<li>动态更新词典策略</li>
+</ul>
+</li>
+<li>同义词<ul>
+<li>同义词<ul>
+<li>同义词词典配置</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>调试<ul>
+<li>调试<ul>
+<li>profile:true</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4、Elasticsearch-常用工具"><a href="#4、Elasticsearch-常用工具" class="headerlink" title="4、Elasticsearch 常用工具"></a>4、Elasticsearch 常用工具</h3><ul>
+<li>kibana 工具<ul>
+<li>xpack 提升安全</li>
+</ul>
+</li>
+<li>Head 浏览器插件</li>
+<li>cerebro 监控工具</li>
+</ul>
 
             </div>
             <hr/>
@@ -492,7 +990,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2019/12/26/hello-world/">http://yoursite.com/2019/12/26/hello-world/</a>
+                    <a href="http://yoursite.com/2019/12/26/elasticsearch/elasticsearch%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">http://yoursite.com/2019/12/26/elasticsearch/elasticsearch%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -529,7 +1027,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Elasticsearch/">
+                                    <span class="chip bg-color">Elasticsearch</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -693,9 +1195,78 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2019/12/26/elasticsearch/elasticsearch%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="elasticsearch基础学习路线">
+                        
+                        <span class="card-title">elasticsearch基础学习路线</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Elasticsearch 学习路线图1、搜索引擎初识
+搜索引擎是什么
+倒排索引
+正排索引
+搜索相关模型
+分词
+中文分词原理
+中文分词开源工具
+
+
+检索质量评价标准
+精准率
+召回率
+
+
+
+
+2、Elasticsearch 初识
+Elasti
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Elasticsearch/" class="post-category">
+                                    Elasticsearch
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Elasticsearch/">
+                        <span class="chip bg-color">Elasticsearch</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2019/12/26/mybatis/Mybatis/">
                     <div class="card-image">
@@ -723,9 +1294,9 @@ TypeHandler
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -746,44 +1317,6 @@ TypeHandler
                     </a>
                     
                 </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/12/26/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-26
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            ZXP
-                            
-                        </span>
-                    </div>
-                </div>
-
                 
             </div>
         </div>
